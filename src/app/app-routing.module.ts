@@ -8,7 +8,6 @@ const routes: Routes = [
   { path: '', redirectTo: 'vehicules', pathMatch: 'full' },
   { path: 'vehicules', component: VehiculeSayfeddinethabetComponentComponent },
   { path: 'ajouter', component: AddVehiculeSayfeddinethabetComponentComponent },
-  // { path: '**', component: NotFoundComponent }, // Uncomment if implemented
 ];
 
 @NgModule({
