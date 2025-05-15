@@ -1,0 +1,26 @@
+<form [formGroup]="addform" (ngSubmit)="add()">
+  <div>
+    <label>Matricule:</label>
+    <input formControlName="Matricule" />
+    <div *ngIf="submitted && Matricule?.errors">
+      <span *ngIf="Matricule && Matricule.errors && Matricule.errors['required']">Le champ matricule est obligatoire.</span>
+      <span *ngIf="Matricule && Matricule.errors && Matricule.errors['pattern']">Le matricule doit commencer par une lettre majuscule.</span>
+    </div>
+  </div>
+  <div>
+    <label>Description:</label>
+    <input formControlName="Description" />
+    <div *ngIf="submitted && Description?.errors">
+      <span *ngIf="Description && Description.errors && Description.errors['required']">Le champ description est obligatoire.</span>
+      <span *ngIf="Description && Description.errors && Description.errors['minlength']">La description doit contenir au moins 3 caractères.</span>
+    </div>
+  </div>
+  <div>
+    <label>Marque:</label>
+    <input formControlName="Marque" />
+    <div *ngIf="submitted && Marque?.errors">
+      <span *ngIf="Marque && Marque.errors && Marque.errors['required']">Le champ marque est obligatoire.</span>
+    </div>
+  </div>
+  <button type="submit" [disabled]="addform.invalid">Ajouter</button>
+</form>

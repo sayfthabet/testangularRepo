@@ -1,0 +1,18 @@
+<div *ngIf="vehicules.length === 0">Aucun véhicule trouvé.</div>
+<ul *ngIf="vehicules.length > 0">
+  <li *ngFor="let veh of vehicules">
+    {{ veh.Matricule }} - {{ veh.Description }} - {{ veh.Marque }}
+    <button (click)="showDetails(veh)">Details</button>
+    <button (click)="deleteVehicule(veh.id)">Supprimer</button>
+  </li>
+</ul>
+
+<div *ngIf="selectedVehicule">
+  <h3>Détails du véhicule</h3>
+  <p><strong>Matricule:</strong> {{ selectedVehicule.Matricule }}</p>
+  <p><strong>Description:</strong> {{ selectedVehicule.Description }}</p>
+  <p><strong>Marque:</strong> {{ selectedVehicule.Marque }}</p>
+  <p><strong>Disponible:</strong> {{ selectedVehicule.Disponible }}</p>
+  <p><strong>Nombre d'intéressés:</strong> {{ selectedVehicule.nbrInteresse }}</p>
+  <button (click)="selectedVehicule = null">Fermer</button>
+</div>
